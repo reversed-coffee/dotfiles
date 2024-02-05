@@ -1,0 +1,9 @@
+# Wallpaper
+output * bg "$HOME/pictures/wallpaper.jpg" fill
+
+# Modkey
+set $mod  Mod4
+set $mod1 Mod1
+
+# Load other files
+include ./config.d/*

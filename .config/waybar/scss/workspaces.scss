@@ -1,0 +1,23 @@
+@use "colors";
+
+#workspaces > button {
+    padding: 0 10px;
+    min-width: 0;
+    box-shadow: none;
+    text-shadow: none;
+    border: none;
+    background: transparent;
+    color: colors.$foreground-dark;
+
+    &.focused {
+        background: colors.$focused;
+    }
+
+    &.urgent {
+        background: colors.$urgent;
+    }
+
+    &:hover {
+        background: colors.$focused;
+    }
+}

@@ -1,0 +1,11 @@
+@use "colors";
+
+#custom-spotify {
+    &.playing {
+        color: colors.$aqua;
+    }
+
+    &.paused {
+        color: colors.$orange;
+    }
+}

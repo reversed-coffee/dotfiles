@@ -1,0 +1,95 @@
+{
+    "output": [ "DP-2" ],
+    "position": "top",
+    "height": 26,
+    "modules-left": ["sway/window", "sway/mode"],
+    "modules-center": ["sway/workspaces"],
+    "modules-right": ["custom/spotify", "tray", "wireplumber", "network#1", "network#2", "network#3", "clock"],
+    "sway/window": {
+        "format": "{app_id} ({shell})",
+        "tooltip": false,
+        "all-outputs": true,
+        "max-length": 50,
+        "rewrite": {
+            " \\(\\)": "None"
+        }
+    },
+    "sway/workspaces": {
+        "all-outputs": true,
+        "format": "{icon}",
+        "persistent-workspaces": {
+            "1":  [ "DP-2" ],
+            "2":  [ "DP-2" ],
+            "3":  [ "DP-2" ],
+            "4":  [ "DP-2" ],
+            "5":  [ "DP-2" ],
+            "6":  [ "DP-2" ],
+            "7":  [ "DP-2" ],
+            "8":  [ "DP-2" ],
+            "9":  [ "DP-2" ],
+            "10": [ "DP-2" ]
+        }
+    },
+    "clock": {
+        "interval": 1,
+        "format": "{:%e %b %Y | %I:%M:%OS %p}",
+        "tooltip": true,
+        "tooltip-format": "<tt><small>{calendar}</small></tt>",
+        "calendar": {
+            "mode": "month",
+            "weeks-pos": "right",
+            "format": {
+                "weeks": "<span color='#d3869b'>W{}</span>",
+                "weekdays": "<span color='#fabd2f'>{}</span>",
+                "today": "<span color='#fb4934'>{}</span>"
+            }
+        }
+    },
+    "wireplumber": {
+        "format": "{volume}% <span size='110%'>{icon}</span>",
+        "tooltip": false,
+        "format-muted": "󰝟",
+        "format-icons": ["󰕿", "󰖀", "󰕾"],
+        "max-volume": 1000,
+        "scroll-step": 0.2,
+        "on-click": "pavucontrol"
+    },
+    "tray": {
+        "icon-size": 16,
+        "spacing": 0
+    },
+    "network#1": {
+        "interface": "wlp6s0",
+        "tooltip": false,
+        "interval": 5,
+        "format": "󰤨"
+    },
+    "network#2": {
+        // Docking station eth port
+        "interface": "eth0",
+        "tooltip": false,
+        "interval": 5,
+        "format": "󰈀",
+	    "format-disconnected": ""
+    },
+    "network#3": {
+        // Builtin eth port
+        "interface": "eno1",
+        "tooltip": false,
+        "interval": 5,
+        "format": "󰈀",
+        "format-disconnected": ""
+    },
+    "custom/spotify": {
+        "format": "<span size='130%'></span> {}",
+        "return-type": "json",
+        "interval": 1,
+        "max-length": 25,
+        "on-click": "playerctl -p spotify play-pause",
+        "on-click-right": "/home/nick/.config/sway/scripts/hider --mode show --selector 'instance=\"spotify\"'",
+        "exec": "/home/nick/.config/waybar/scripts/spotify",
+        "exec-if": "pgrep spotify",
+        "on-scroll-up": "playerctl -p spotify previous",
+        "on-scroll-down": "playerctl -p spotify next"
+    }
+}

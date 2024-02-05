@@ -1,0 +1,10 @@
+@use "colors";
+
+#network {
+    color: colors.$aqua;
+    font-size: 9.5pt;
+
+    &.disconnected {
+        color: colors.$inactive;
+    }
+}
