@@ -1,5 +1,5 @@
 {
-    "output": [ "DP-2" ],
+    "output": [ "$PRIMARY_DISPLAY" ],
     "position": "top",
     "height": 26,
     "modules-left": ["sway/window", "sway/mode"],
@@ -18,16 +18,16 @@
         "all-outputs": true,
         "format": "{icon}",
         "persistent-workspaces": {
-            "1":  [ "DP-2" ],
-            "2":  [ "DP-2" ],
-            "3":  [ "DP-2" ],
-            "4":  [ "DP-2" ],
-            "5":  [ "DP-2" ],
-            "6":  [ "DP-2" ],
-            "7":  [ "DP-2" ],
-            "8":  [ "DP-2" ],
-            "9":  [ "DP-2" ],
-            "10": [ "DP-2" ]
+            "1":  [ "$PRIMARY_DISPLAY" ],
+            "2":  [ "$PRIMARY_DISPLAY" ],
+            "3":  [ "$PRIMARY_DISPLAY" ],
+            "4":  [ "$PRIMARY_DISPLAY" ],
+            "5":  [ "$PRIMARY_DISPLAY" ],
+            "6":  [ "$PRIMARY_DISPLAY" ],
+            "7":  [ "$PRIMARY_DISPLAY" ],
+            "8":  [ "$PRIMARY_DISPLAY" ],
+            "9":  [ "$PRIMARY_DISPLAY" ],
+            "10": [ "$PRIMARY_DISPLAY" ]
         }
     },
     "clock": {
@@ -86,8 +86,8 @@
         "interval": 1,
         "max-length": 25,
         "on-click": "playerctl -p spotify play-pause",
-        "on-click-right": "/home/nick/.config/sway/scripts/hider --mode show --selector 'instance=\"spotify\"'",
-        "exec": "/home/nick/.config/waybar/scripts/spotify",
+        "on-click-right": "$HOME/.config/sway/scripts/hider --mode show --selector 'instance=\"spotify\"'",
+        "exec": "$HOME/.config/waybar/scripts/spotify",
         "exec-if": "pgrep spotify",
         "on-scroll-up": "playerctl -p spotify previous",
         "on-scroll-down": "playerctl -p spotify next"
