@@ -1,0 +1,22 @@
+#!/bin/sh
+
+user=$(whoami)
+host=$(hostnamectl --static)
+uptime=$(uptime | awk '{print $3}' | sed 's/,//')
+packages=$(pacman -Q | wc -l)
+desktop="${XDG_CURRENT_DESKTOP:-unknown}"
+shell="$SHELL"
+
+header="${user}\e[39m@\e[36m${host}"
+amt=$(bc <<< "${#user} + ${#host} + 1")
+header_line=$(seq $amt | sed -E 's/.+/─/' | tr -d '\n')
+
+printf "
+\e[36;1m    $header
+\e[39m    $header_line
+\e[33m    \e[34;1mshell   \e[39;0m-> ${shell}
+\e[33m    \e[35;1mdesktop \e[39;0m-> ${desktop}
+\e[33m    \e[32;1mpkgs    \e[39;0m-> ${packages}
+\e[33m    \e[33;1mcoffee  \e[39;0m-> brewing
+
+"

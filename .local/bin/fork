@@ -1,0 +1,4 @@
+#!/bin/sh
+# fork - start a child process from cli
+
+"$@" &

@@ -1,0 +1,2 @@
+#!/bin/sh
+/usr/bin/discord-ptb --enable-features=UseOzonePlatform --ozone-platform=wayland

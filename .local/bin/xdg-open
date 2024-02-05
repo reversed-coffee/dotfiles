@@ -1,0 +1,4 @@
+#!/bin/sh
+# Convert xdg-open to handlr open requests
+
+handlr open "$@"

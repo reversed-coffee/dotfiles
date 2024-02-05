@@ -1,0 +1,2 @@
+#!/bin/sh
+sed 's/:/\n/g' <<< "$PATH" | xargs -I {} ls -1 {} 2> /dev/null | sort | tofi | xargs -I {} bash -c "{}"

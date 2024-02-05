@@ -1,0 +1,23 @@
+#!/usr/bin/env bash
+# swaystart - Launch sway, the correct way.
+
+set -eux
+
+# Create a subshell so we can isolate exports
+(
+    # Set all environment variables related to sway
+    set -a
+    for file in $HOME/.config/sway/environment.d/*.conf; do
+        if [ -f "$file" ]; then
+            #echo "Exported vars from $file"            
+            source "$file"
+        fi
+    done
+    set +a
+
+    # Create a sway environment dump
+    printenv | awk -F= '{printf "set $env_%s %s\n", $1, $2}' > ~/.config/sway/config.d/00-envdump.conf    
+    
+    # Execute sway
+    sway
+)
