@@ -1,0 +1,26 @@
+# Adaptive sync should be controlled by swaymsg
+# Causes flickering; should be used in fullscreen apps
+
+profile {
+    output "BOE NE160WUM-NX2 Unknown" position 0,0 adaptive_sync off
+    exec ~/.config/sway/scripts/kanshi-switch.sh
+}
+
+profile docked_left {
+    output "BOE NE160WUM-NX2 Unknown"       position 0,1235 adaptive_sync off
+    output "Dell Inc. DELL S2319NX 1LV6T03" position 1920,0 transform 90
+    exec ~/.config/sway/scripts/kanshi-switch.sh
+}
+
+profile docked_center {
+    output "BOE NE160WUM-NX2 Unknown"       position 0,1080 adaptive_sync off
+    output "Dell Inc. DELL S2319NX 4027T03" position 0,0 
+    exec ~/.config/sway/scripts/kanshi-switch.sh
+}
+
+profile docked_full {
+    output "BOE NE160WUM-NX2 Unknown"       position 0,1235 adaptive_sync off
+    output "Dell Inc. DELL S2319NX 1LV6T03" position 1920,0 transform 90
+    output "Dell Inc. DELL S2319NX 4027T03" position 3000,225
+    exec ~/.config/sway/scripts/kanshi-switch.sh
+}

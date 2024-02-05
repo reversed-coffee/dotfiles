@@ -1,6 +1,0 @@
-#!/bin/sh
-# Restart waybar the easy way
-
-killall waybar 2> /dev/null
-waybar --style $HOME/.config/waybar/css/style.css > /dev/null 2>&1 &
-disown
