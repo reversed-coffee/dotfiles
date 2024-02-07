@@ -4,7 +4,7 @@
     "height": 26,
     "modules-left": ["sway/window", "sway/mode"],
     "modules-center": ["sway/workspaces"],
-    "modules-right": ["custom/spotify", "tray", "wireplumber", "network#1", "network#2", "network#3", "clock"],
+    "modules-right": ["custom/spotify", "tray", "custom/separator", "network#1", "network#2", "network#3", "custom/separator", "custom/power", "wireplumber", "clock"],
     "sway/window": {
         "format": "{app_id} ({shell})",
         "tooltip": false,
@@ -46,7 +46,7 @@
         }
     },
     "wireplumber": {
-        "format": "{volume}% <span size='110%'>{icon}</span>",
+        "format": "<span size='120%'>{icon}</span> {volume}%",
         "tooltip": false,
         "format-muted": "󰝟",
         "format-icons": ["󰕿", "󰖀", "󰕾"],
@@ -62,14 +62,14 @@
         "interface": "wlp6s0",
         "tooltip": false,
         "interval": 5,
-        "format": "󰤨"
+        "format": "󰤨  "
     },
     "network#2": {
         // Docking station eth port
         "interface": "eth0",
         "tooltip": false,
         "interval": 5,
-        "format": "󰈀",
+        "format": "󰈀 ",
 	    "format-disconnected": ""
     },
     "network#3": {
@@ -77,19 +77,28 @@
         "interface": "eno1",
         "tooltip": false,
         "interval": 5,
-        "format": "󰈀",
+        "format": "󰈀 ",
         "format-disconnected": ""
     },
     "custom/spotify": {
-        "format": "<span size='130%'></span> {}",
+        "format": "<span size='120%'></span>  {}",
         "return-type": "json",
-        "interval": 1,
+        "interval": 2,
         "max-length": 25,
         "on-click": "playerctl -p spotify play-pause",
-        "on-click-right": "$HOME/.config/sway/scripts/hider --mode show --selector 'instance=\"spotify\"'",
-        "exec": "$HOME/.config/waybar/scripts/spotify",
+        "exec": "$HOME/.config/waybar/scripts/spotify.py",
         "exec-if": "pgrep spotify",
         "on-scroll-up": "playerctl -p spotify previous",
         "on-scroll-down": "playerctl -p spotify next"
+    },
+    "custom/power": {
+        "format": "{}   {percentage}%",
+        "return-type": "json",
+        "interval": 2,
+        "exec": "$HOME/.config/waybar/scripts/power.py"
+    },
+    "custom/separator": {
+        "format": "|",
+        "tooltip": false
     }
 }

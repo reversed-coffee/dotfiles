@@ -19,5 +19,5 @@ set -eux
     printenv | awk -F= '{printf "set $env_%s %s\n", $1, $2}' > ~/.config/sway/config.d/00-envdump.conf    
     
     # Execute sway
-    sway
+    sway > $HOME/log/sway.log 2>&1
 )

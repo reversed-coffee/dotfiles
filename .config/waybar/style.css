@@ -6,8 +6,7 @@
   padding: 0;
 }
 
-/*
-#waybar > * {
+/*#waybar > * {
     background-color: #0000007F;
     & > * {
         background-color: #1010107F;
@@ -30,14 +29,17 @@
             }
         }
     }
+}*/
+#clock {
+  margin: -20pt;
 }
-*/
+
 #waybar {
   border-style: inset;
   /*border-bottom: 1px solid #988974;*/
   background: rgba(141, 141, 141, 0.1019607843);
   text-shadow: none;
-  font-family: "Symbols Nerd Font Mono", "JetBrains Mono", "DejaVu Sans Mono", monospace;
+  font-family: "Symbols Nerd Font", "JetBrains Mono", "DejaVu Sans Mono", monospace;
   font-size: 8.5pt;
   color: #ebdbb2;
 }
@@ -78,4 +80,8 @@
 }
 #custom-spotify.paused {
   color: #fe8019;
+}
+
+#custom-separator {
+  color: #a89984;
 }

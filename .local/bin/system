@@ -1,4 +1,5 @@
 #!/bin/sh
 # system - start a new process from cli
 
-"$@" &; disown
+"$@" &
+disown
