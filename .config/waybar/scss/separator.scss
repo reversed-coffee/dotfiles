@@ -1,0 +1,5 @@
+@use "colors";
+
+#custom-separator {
+    color: colors.$foreground-dark;
+}
